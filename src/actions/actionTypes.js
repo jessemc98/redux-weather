@@ -1,0 +1,2 @@
+export const EXAMPLE_START = 'EXAMPLE_START'
+export const EXAMPLE_END = 'EXAMPLE_END'
