@@ -1,4 +1,5 @@
 import React, { PropTypes} from 'react'
+import WeatherIcon from '../icon/WeatherIcon'
 
 const DailyOverview = ({ icon, weather, currentTemp, high, low}) => (
   <div className="DailyOverview">
@@ -7,7 +8,7 @@ const DailyOverview = ({ icon, weather, currentTemp, high, low}) => (
       <span className="DailyOverview_weather_highlow">{high}/{low}</span>
     </div>
     <h5 className="DailyOverview_description">{weather}</h5>
-    <img className="DailyOverview_icon" src={icon} alt={weather + ' icon'}/>
+    <WeatherIcon src={icon} alt={weather}/>
   </div>
 )
 DailyOverview.propTypes = {
