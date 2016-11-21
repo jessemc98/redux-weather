@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import DailyWeather from '../dailyWeather/DailyWeather'
 import DailyOverview from '../dailyOverview/DailyOverview'
-import connect from 'react-redux'
-import { withRouter } from 'react-router'
+
+import './CountryPage.scss'
 
 const CountryPage = ({ overview, forecast}) => (
   <main className="CountryPage">
@@ -12,7 +12,7 @@ const CountryPage = ({ overview, forecast}) => (
       currentTemp={overview.temp.current}
       high={overview.temp.high}
       low={overview.temp.low} />
-    
+
     {forecast.map((day, i) => {
       return (<DailyWeather {...day} key={i}/>)
     })}

@@ -1,0 +1,20 @@
+.DailyWeather {
+  width: 100%;
+  max-width: 350px;
+  padding: 0 0.5rem;
+  h2 {
+    font-size: 1.5em;
+    margin: 0.5rem 0.25rem 0.25rem 0.25rem;
+  }
+  .WeatherIcon-dated {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    img {
+      width: 100%;
+    }
+    h4 {
+      margin-top: 0;
+    }
+  }
+}

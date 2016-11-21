@@ -1,0 +1,25 @@
+.DailyOverview {
+  width: 100%;
+  max-width: 350px;
+  padding: 0.5rem;
+  background: aquamarine;
+
+  &_weather {
+    width: 80%;
+    display: inline-block;
+    &_current {
+      font-size: 2.2em;
+    }
+    &_highlow {
+      font-size: 1.2em;
+    }
+  }
+  &_description {
+    font-size: 2em;
+    margin: 0;
+  }
+  .WeatherIcon {
+    width: 4em;
+    height: 4em;
+  }
+}

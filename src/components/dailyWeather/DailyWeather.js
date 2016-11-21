@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import WeatherDateIcon from '../icon/WeatherDateIcon'
+import './DailyWeather.scss'
 
 const DailyWeather = ({date, icons=[]}) => (
   <div className="DailyWeather">
