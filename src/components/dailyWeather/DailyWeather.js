@@ -4,7 +4,7 @@ import WeatherDateIcon from '../icon/WeatherDateIcon'
 const DailyWeather = ({date, icons=[]}) => (
   <div className="DailyWeather">
     <h2>{date}</h2>
-    {icons.map((icon) => (<WeatherDateIcon {...icon} />))}
+    {icons.map((icon, i) => (<WeatherDateIcon {...icon} key={i}/>))}
   </div>
 )
 DailyWeather.propTypes = {
