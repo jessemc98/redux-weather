@@ -1,3 +1,4 @@
 export default {
-  example: []
+  overview: {},
+  forecast: {}
 }

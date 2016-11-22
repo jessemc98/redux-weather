@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
-import example from './exampleReducer.js'
+import overview from './overviewReducer.js'
+import forecast from './forecastReducer.js'
 
 const rootReducer = combineReducers({
-  example
+  overview,
+  forecast
 })
 
 export default rootReducer;
