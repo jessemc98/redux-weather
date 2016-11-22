@@ -1,11 +1,11 @@
 .DailyOverview {
   width: 100%;
   max-width: 350px;
-  padding: 0.5rem;
-  background: aquamarine;
+  padding: 0.5rem 1rem;
+  background: #3e8ed8;
+  color: white;
 
   &_weather {
-    width: 80%;
     display: inline-block;
     &_current {
       font-size: 2.2em;
@@ -19,6 +19,7 @@
     margin: 0;
   }
   .WeatherIcon {
+    float: right;
     width: 4em;
     height: 4em;
   }
