@@ -36,10 +36,7 @@ class CountryPageManager extends React.Component {
   render () {
     const { overview, forecast } = this.state
     return (
-      <div>
-        <button onClick={this.refresh}>refresh</button>
-        <CountryPage overview={overview} forecast={forecast} />
-      </div>
+      <CountryPage overview={overview} forecast={forecast} />
     )
   }
 
@@ -94,7 +91,7 @@ function getInitialForecast (state, country){
 }
 
 function mapStateToProps(state, ownProps){
-  const country = ownProps.routeParams.country
+  const country = ownProps.routeParams.country || 'gibraltar'
   return {
     overview: getInitialOverview(state, country),
     forecast: getInitialForecast(state, country)
