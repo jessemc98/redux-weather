@@ -21,14 +21,16 @@ export function forecastFormattedForDailyWeather(weeklyForecast) {
   const fiveDayForecast = weeklyForecast.slice(1, 4)
 
   return fiveDayForecast.map((forecast) => {
-    const weekDay = new Date(forecast[0].dt_txt)
+
+    const weekDay = new Date(forecast[0].dt_txt.slice(0, 10))
+    console.log(forecast[0].dt_txt)
     const forecastForIcons = forecast.slice(2, 7)
 
     return {
       date: weekdayNumToWord(weekDay.getDay()) + " " + dayWithSuffix(weekDay.getDate()),
       icons: forecastForIcons.map(icon => {
         const weather = icon.weather[0]
-        const time = new Date(icon.dt_txt)
+        const time = new Date(icon.dt_txt.slice(0, 10))
 
         return {
           src: `http://openweathermap.org/img/w/${weather.icon}.png`,
