@@ -8,7 +8,7 @@
     "build": "webpack",
     "serve": "webpack-dev-server",
     "test:lint": "eslint . --ext .js --ext .jsx --ignore-path .gitignore --cache",
-    "test": "mocha --reporter progress libs/test.js src/**/**/*.test.js",
+    "test": "mocha --reporter progress libs/test.js src/**/*.test.js src/**/**/*.test.js",
     "test:watch": "npm test -- --watch"
   },
   "author": "jesse mcintosh",
@@ -35,6 +35,7 @@
     "html-webpack-plugin": "^2.22.0",
     "jsdom": "^9.6.0",
     "mocha": "^3.1.0",
+    "nock": "^9.0.2",
     "node-sass": "^3.10.1",
     "npm-run-all": "^3.1.0",
     "path": "^0.12.7",
