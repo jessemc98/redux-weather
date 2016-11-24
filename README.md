@@ -1,6 +1,6 @@
 # redux-weather
-weather app written over a weekend using react and redux
-
+weather app written over a weekend using the [open weather API](http://openweathermap.org/api).
+Among the technologies used; react, redux, axios and more, view the package.json file for a full list of dependencies.
 ## Basic Usage
 
 * *npm start*: serves a development server at localhost on port 8080 and runs npm test with --watch flag.
