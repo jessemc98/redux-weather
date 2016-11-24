@@ -1,6 +1,30 @@
 import expect from 'expect'
 import * as selectors from './selectors'
 
+describe("dateStrToObject", function () {
+  const { dateStrToObject } = selectors
+  it("does not throw any errors", function () {
+    expect(dateStrToObject).toNotThrow('error')
+  });
+  describe("parses a given string and returns a javascript Date object", function () {
+    it("with the correct date", function () {
+      const str = '2016-11-24 10:10:10'
+      const parsedDate = dateStrToObject(str)
+
+      expect(parsedDate.getDate()).toEqual(24)
+      expect(parsedDate.getFullYear()).toEqual(2016)
+      expect(parsedDate.getMonth()).toEqual(10)
+    });
+    it("with the correct time", function () {
+      const str = '2016-11-24 10:10:10'
+      const parsedDate = dateStrToObject(str)
+
+      expect(parsedDate.getSeconds()).toEqual(10)
+      expect(parsedDate.getMinutes()).toEqual(10)
+      expect(parsedDate.getHours()).toEqual(10)
+    });
+  });
+});
 describe("dayWithSuffix", function () {
   const { dayWithSuffix } = selectors
   it("returns number with 'st' suffix when number at end is a 1", function () {

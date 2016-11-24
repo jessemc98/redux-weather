@@ -1,3 +1,15 @@
+export function dateStrToObject(str){
+  //expects date str with format: YYYY-MM-DD hh:mm:ss
+  //returns javascript Date object
+  const parsed = new Date
+  parsed.setFullYear(parseInt(str.slice(0, 4), 10))
+  parsed.setDate(parseInt(str.slice(8, 10), 10))
+  parsed.setMonth(parseInt(str.slice(5, 7), 10) - 1)
+  parsed.setHours(parseInt(str.slice(11, 13), 10))
+  parsed.setMinutes(parseInt(str.slice(14, 16), 10))
+  parsed.setSeconds(parseInt(str.slice(17, 19), 10))
+  return parsed
+}
 export function dayWithSuffix(day){
   const strDay = day.toString()
   const lastDigit = strDay.charAt(strDay.length - 1)

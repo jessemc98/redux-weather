@@ -3,7 +3,8 @@ import {
   dayWithSuffix,
   uppercaseFirst,
   kelvinToCelsius,
-  hourFormattedForWeather } from './selectors.js'
+  hourFormattedForWeather,
+  dateStrToObject } from './selectors.js'
 
 export function weatherFormattedForOverview(weather) {
   const overview = {
@@ -21,16 +22,14 @@ export function forecastFormattedForDailyWeather(weeklyForecast) {
   const fiveDayForecast = weeklyForecast.slice(1, 4)
 
   return fiveDayForecast.map((forecast) => {
-
-    const weekDay = new Date(forecast[0].dt_txt.slice(0, 10))
-    console.log(forecast[0].dt_txt)
+    const weekDay = dateStrToObject(forecast[0].dt_txt)
     const forecastForIcons = forecast.slice(2, 7)
 
     return {
       date: weekdayNumToWord(weekDay.getDay()) + " " + dayWithSuffix(weekDay.getDate()),
       icons: forecastForIcons.map(icon => {
         const weather = icon.weather[0]
-        const time = new Date(icon.dt_txt.slice(0, 10))
+        const time = dateStrToObject(icon.dt_txt)
 
         return {
           src: `http://openweathermap.org/img/w/${weather.icon}.png`,
