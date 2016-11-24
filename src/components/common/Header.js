@@ -37,6 +37,9 @@ class Header extends React.Component {
 Header.propTypes = {
   router: PropTypes.shape({
     push: PropTypes.func.isRequired
+  }).isRequired,
+  params: PropTypes.shape({
+    country: PropTypes.string.isRequired
   }).isRequired
 }
 
