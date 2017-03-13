@@ -19,4 +19,5 @@ export function getForecast(cityName) {
     params: {q: cityName}
   })
 }
-//(axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d5fa9909b8944d603b81a6a7dbec6b13`)
+// basic call
+//axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d5fa9909b8944d603b81a6a7dbec6b13`)
