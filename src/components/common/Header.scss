@@ -29,3 +29,13 @@
     font-size: 2.4em;
   }
 }
+@media only screen and (max-width: 600px){
+  .Header {
+    height: auto;
+    h1 {
+      display: block;
+      position: relative;
+      left: initial;
+    }
+  }
+}
