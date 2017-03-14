@@ -54,9 +54,7 @@ class Header extends React.Component {
           <input className="Header_submit" type="submit" value="search" />
           <ul className="Header_searchOptions">
             {this.props.cityOptions.map(city => {
-              const redirectToCity = () => {
-                this.redirectToCity(city)
-              }
+              const redirectToCity = () => this.redirectToCity(city)
               return (<MiniOverviewCard {...city} onClick={redirectToCity} key={city.id}/>)
             })}
           </ul>
