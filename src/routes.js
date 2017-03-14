@@ -6,6 +6,6 @@ import CountryPageManager from './components/countryPage/CountryPageManager'
 export default (
   <Route path="/" component={Layout} >
     <IndexRoute component={CountryPageManager} />
-    <Route path="(:country)" component={CountryPageManager} />
+    <Route path="(:countryId)" component={CountryPageManager} />
   </Route>
 )

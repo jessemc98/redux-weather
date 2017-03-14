@@ -6,6 +6,7 @@ import { weatherFormattedForOverview, forecastFormattedForDailyWeather } from '.
 import * as overviewActions from '../../actions/overviewActions.js'
 import * as forecastActions from '../../actions/forecastActions.js'
 
+const GIBRALTAR_COUNTRY_ID = "2411585"
 
 class CountryPageManager extends React.Component {
   constructor(props, context){
@@ -19,18 +20,21 @@ class CountryPageManager extends React.Component {
     this.refresh = this.refresh.bind(this)
   }
   componentDidMount(){
-    this.refresh(this.props.params.country || "gibraltar")
+    this.refresh(this.props.params.countryId || GIBRALTAR_COUNTRY_ID)
   }
   componentWillReceiveProps(newProps){
-    if(newProps.params.country !== this.props.params.country){
-      this.refresh(newProps.params.country || "gibraltar")
+    if(newProps.params.countryId !== this.props.params.countryId){
+      this.refresh(newProps.params.countryId || GIBRALTAR_COUNTRY_ID)
     }
     this.setState({overview: newProps.overview, forecast: newProps.forecast})
   }
-  refresh(country){
-    this.props.overviewActions.loadOverview(country || this.props.routeParams.country).then((x) => {
-        this.props.forecastActions.loadForecast(country || this.props.routeParams.country)
-      })
+  refresh(countryId){
+    const { countryId: routeId } = this.props.routeParams
+    this.props.overviewActions
+    .loadOverview(countryId || routeId)
+      .then((x) =>
+        this.props.forecastActions
+        .loadForecast(countryId || routeId))
   }
 
   render () {
@@ -69,32 +73,32 @@ CountryPageManager.propTypes = {
     loadForecast: PropTypes.func.isRequired
   }),
   routeParams: PropTypes.shape({
-    country: PropTypes.string.isRequired
+    countryId: PropTypes.string.isRequired
   }),
   params: PropTypes.shape({
-    country: PropTypes.string.isRequired
+    countryId: PropTypes.string.isRequired
   })
 }
 
-function getInitialOverview (state, country){
+function getInitialOverview (state, countryId){
   const defaultOverview = { icon: '', description: '', temp: { current: 0, high: 0, low: 0} }
 
-  if (!state.overview[country]) return defaultOverview
-  return weatherFormattedForOverview(state.overview[country])
+  if (!state.overview[countryId]) return defaultOverview
+  return weatherFormattedForOverview(state.overview[countryId])
 }
 
-function getInitialForecast (state, country){
+function getInitialForecast (state, countryId){
   const defaultForecast = [{date: '', icons: [{src: '', alt: '', time: ''}]}]
 
-  if (!state.forecast[country]) return defaultForecast
-  return forecastFormattedForDailyWeather(state.forecast[country])
+  if (!state.forecast[countryId]) return defaultForecast
+  return forecastFormattedForDailyWeather(state.forecast[countryId])
 }
 
 function mapStateToProps(state, ownProps){
-  const country = ownProps.routeParams.country || 'gibraltar'
+  const countryId = ownProps.routeParams.countryId || '2411585'
   return {
-    overview: getInitialOverview(state, country),
-    forecast: getInitialForecast(state, country)
+    overview: getInitialOverview(state, countryId),
+    forecast: getInitialForecast(state, countryId)
   }
 }
 function mapDispatchToProps(dispatch){

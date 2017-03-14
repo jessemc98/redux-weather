@@ -17,7 +17,7 @@ describe("getWeather", function () {
       .get('/weather')
       .query(true)
       .reply(200, {weather: 'clear'});
-    getWeather('gibraltar')
+    getWeather('2411585')
       .then(response => {
         expect(response)
         done()

@@ -4,10 +4,10 @@ import { seperateUniqueDays } from '../selectors/selectors'
 
 export default function overviewReducer(state = initial.forecast, action) {
   if(action.type === types.FORECAST_LOADED) {
-    const city = action.payload.city.name.toLowerCase()
+    const cityId = action.payload.city.id
     const forecast = Object.assign({}, state)
 
-    forecast[city] = seperateUniqueDays(action.payload.list)
+    forecast[cityId] = seperateUniqueDays(action.payload.list)
 
     return forecast
   }

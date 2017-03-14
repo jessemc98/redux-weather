@@ -6,6 +6,7 @@ export default function overviewReducer(state = initial.overview, action) {
     const copy = Object.assign({}, state)
     let weather = {
       city: action.payload.name,
+      id: action.payload.id,
       country: action.payload.sys.country,
       dt: action.payload.dt,
       max_temp: action.payload.main.temp_max,
@@ -15,7 +16,7 @@ export default function overviewReducer(state = initial.overview, action) {
       description: action.payload.weather[0].description,
       icon: action.payload.weather[0].icon
     }
-    copy[weather.city.toLowerCase()] = weather
+    copy[weather.id] = weather
 
     return copy
   }

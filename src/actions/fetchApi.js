@@ -9,14 +9,14 @@ const apiEntrypoint = axios.create({
   }
 });
 
-export function getWeather(cityName) {
+export function getWeather(cityId) {
   return apiEntrypoint.get("weather", {
-    params: {q: cityName}
+    params: {id: cityId}
   })
 }
-export function getForecast(cityName) {
+export function getForecast(cityId) {
   return apiEntrypoint.get("forecast", {
-    params: {q: cityName}
+    params: {id: cityId}
   })
 }
 export function getMatchingCities(partialCityName) {
