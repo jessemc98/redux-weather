@@ -1,4 +1,5 @@
 export default {
   overview: {},
-  forecast: {}
+  forecast: {},
+  citySearch: []
 }
