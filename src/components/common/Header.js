@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import * as citySearchActions from '../../actions/citySearchActions'
 import { uppercaseFirst } from '../../selectors/selectors'
 
+import MiniOverviewCard from '../miniOverviewCard/miniOverviewCard'
+
 import './Header.scss'
 
 class Header extends React.Component {
@@ -50,18 +52,12 @@ class Header extends React.Component {
         <form >
           <input className="Header_search" placeholder="Enter city name" value={this.state.search} onChange={this.change} />
           <input className="Header_submit" type="submit" value="search" />
-          <ul>
+          <ul className="Header_searchOptions">
             {this.props.cityOptions.map(city => {
               const redirectToCity = () => {
                 this.redirectToCity(city)
               }
-              return (
-                <li key={city.id}>
-                  <button onClick={redirectToCity}>
-                    {city.name},{city.sys.country}
-                  </button>
-                </li>
-              )
+              return (<MiniOverviewCard {...city} onClick={redirectToCity} key={city.id}/>)
             })}
           </ul>
         </form>
