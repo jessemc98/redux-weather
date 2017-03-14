@@ -19,5 +19,10 @@ export function getForecast(cityName) {
     params: {q: cityName}
   })
 }
+export function getMatchingCities(partialCityName) {
+  return apiEntrypoint.get("find", {
+    params: {q: partialCityName}
+  })
+}
 // basic call
 //axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d5fa9909b8944d603b81a6a7dbec6b13`)
